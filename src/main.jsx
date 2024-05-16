@@ -19,7 +19,7 @@ TimeAgo.addLocale(es);
 
 
 
-// Arrancar app de react
+// Arrancar app de react run
 ReactDOM.createRoot(document.getElementById('root')).render(
 
     <App />
