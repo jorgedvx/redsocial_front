@@ -2,22 +2,21 @@ import React, { useState } from 'react'
 import { userForm } from '../../hooks/userForm'
 import { Global } from '../../helpers/Global';
 import UseAuth from '../../hooks/UseAuth';
-import { useForm } from 'react-hook-form'
+
 
 
 export const Login = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
-
+    
     const { form, changed } = userForm({});
     const [saved, setSaved] = useState("not_sended")
 
     const { setAuth } = UseAuth();
 
 
-    const loginUser = async () => {
+    const loginUser = async(e) => {
 
-        // e.preventDefault();
+        e.preventDefault();
 
         // Datos del formulario
         let userToLogin = form;
@@ -78,19 +77,18 @@ export const Login = () => {
                     <strong className='alert alert-danger'> Usuario no se ha identificado !! </strong>
                     : ""}
 
-                <form className='form-login' onSubmit={handleSubmit(loginUser)} >
+                <form className='form-login' onSubmit={loginUser} >
 
                     <div className='form-group'>
                         <label htmlFor='email'>Email</label>
-                        <input {...register('email', { required: true })} type="email" name="email" onChange={changed} />
-                        <p className='text-danger'>{errors.email?.type === 'required' && "Este campo es obligatorio!"}</p>
+                        <input  type="email" name="email" required onChange={changed} />
                     </div>
 
 
                     <div className='form-group'>
                         <label htmlFor='password'>Contraseña</label>
-                        <input {...register('password', { required: true })} type="password" name="password" onChange={changed} />
-                        <p className='text-danger' >{errors.password?.type === 'required' && "Este campo es obligatorio!"}</p>
+                        <input  type="password" name="password" required onChange={changed} />
+                        
                     </div>
 
                     <input type="submit" value="Identificate" className="btn btn-succeess" />
