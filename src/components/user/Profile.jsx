@@ -181,7 +181,7 @@ export const Profile = () => {
 
                     <div className="profile-info__general-info">
                         <div className="general-info__container-avatar">
-                            {user.image != "default.png" && <img src={Global.url + "user/avatar/" + user.image} className="container-avatar__img" alt="Foto de perfil" />}
+                            {user.image != "default.png" && <img src={user.secure_url} className="container-avatar__img" alt="Foto de perfil Profile" />}
                             {user.image == "default.png" && <img src={avatar} className="container-avatar__img" alt="Foto de perfil" />}
                         </div>
 

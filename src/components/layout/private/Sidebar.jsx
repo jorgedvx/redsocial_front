@@ -49,7 +49,7 @@ export const Sidebar = () => {
         if (data.status == "success" && fileInput.files[0]) {
 
             const formData = new FormData();
-            formData.append("file0", fileInput.files[0]);
+            formData.append("image", fileInput.files[0]);
 
             const uploadrequest = await fetch(Global.url + "publication/upload/" + data.publicationStared._id, {
                 method: "POST",
@@ -94,7 +94,7 @@ export const Sidebar = () => {
 
                     <div className="profile-info__general-info">
                         <div className="general-info__container-avatar">
-                            {auth.image != "default.png" && <img src={Global.url + "user/avatar/" + auth.image} className="container-avatar__img" alt="Foto de perfil" />}
+                            {auth.image != "default.png" && <img src={auth.secure_url} className="container-avatar__img" alt="Foto de perfil" />}
                             {auth.image == "default.png" && <img src={avatar} className="container-avatar__img" alt="Foto de perfil" />}
 
                         </div>
@@ -152,7 +152,7 @@ export const Sidebar = () => {
 
                         <div className="form-post__inputs">
                             <label htmlFor="image" className="form-post__label">Sube tu foto</label>
-                            <input type="file" name="file0" id='file' className="form-post__image" />
+                            <input type="file" name="image" id='file' className="form-post__image" />
                         </div>
 
                         <input type="submit" value="Enviar" className="form-post__btn-submit" />

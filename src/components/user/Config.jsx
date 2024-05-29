@@ -63,7 +63,7 @@ export const Config = () => {
 
             // Recoger imagen a subir
             const formData = new FormData();
-            formData.append('file0', fileInput.files[0]);
+            formData.append('image', fileInput.files[0]);
 
             // Peticion para enviar la imagen al bbdd
 
@@ -148,14 +148,14 @@ export const Config = () => {
 
 
                     <div className='form-group'>
-                        <label htmlFor='file0'>Avatar</label>
+                        <label htmlFor='image'>Avatar</label>
                         <div className='avatar'>
                             {/*MOSTRAR IMAGEN*/}
-                            {auth.image != "default.png" && <img src={Global.url + "user/avatar/" + auth.image} className="container-avatar__img" alt="Foto de perfil"/>}
+                            {auth.image != "default.png" && <img src={auth.secure_url} className="container-avatar__img" alt="Foto de perfil"/>}
                             {auth.image == "default.png" && <img src={avatar} className="container-avatar__img" alt="Foto de perfil"/>}
                         </div>
                         <br/>
-                        <input type='file' name='file0' id='file_perfil'/>
+                        <input type='file' name='image' id='file_perfil'/>
                     </div>
                     <br/>
 

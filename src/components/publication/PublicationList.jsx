@@ -58,7 +58,7 @@ export const PublicationList = ({ publications, getPublications, page, setPage, 
                                     <div className='post__superior'>
                                         <div className="post__image-user">
                                             <Link to={"/social/perfil/" + publication.user._id} className="post__user-image">
-                                                {publication.user.image != "default.png" && <img src={Global.url + "user/avatar/" + publication.user.image} className="post__user-image" alt="Foto de perfil" />}
+                                                {publication.user.image != "default.png" && <img src={publication.user.secure_url} className="post__user-image" alt="Foto de perfil Publication" />}
                                                 {publication.user.image == "default.png" && <img src={avatar} className="post__user-image" alt="Foto de perfil" />}
                                             </Link>
                                         </div>
@@ -82,7 +82,7 @@ export const PublicationList = ({ publications, getPublications, page, setPage, 
                                     </div>
 
                                     <h4 className="post__content">{publication.text}</h4>
-                                    {publication.file && <img src={Global.url + "publication/media/" + publication.file} />}
+                                    {publication.file && <img src={publication.secure_url} />}
                                 </div>
 
                             </div>
